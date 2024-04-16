@@ -10,7 +10,7 @@ lambda = c/f;
 k = 2*pi/lambda;
 theta = 0:.00001:2*pi;
 %% Hansen-Woodyard Array
-d = lambda./6
+d = lambda./4
 beta = -k.*d - pi./N;
 psi = k.*d.*cos(theta)+beta;
 AF_n = (1./N).*(sin(N.*psi./2))./(sin(.5.*psi)); %Array Factor
@@ -19,5 +19,5 @@ AF_n = (1./N).*(sin(N.*psi./2))./(sin(.5.*psi)); %Array Factor
 figure
 polarplot(theta,abs(AF_n));
 hold on
-legend('d = \lambda/6');
+legend('d = \lambda/4');
 hold off
