@@ -68,19 +68,10 @@ end
 
 %
 surf(X,Y,Z), 
-% hold on
-% xlabel('distance (m)'),ylabel('Progressive Phase Shift (theta)'),zlabel('Backlobe Gain')
-% title('Backlobe Gain as a function of Progressive Phase Shift and Distance');
-% scatter(x_n(:,1),x_n(:,2),'r','filled')
-% hold off
-% Output
+xlabel()
+ylabel()
 fprintf("Reached target in %d iterations\n",length(x_n))
 fprintf("Final pt is (x=%1.2f,y=%1.2f,z=%1.2f)\n",x_n(end,1),x_n(end,2),x_n(end,3))
-
-% 
-% axis off
-% set(gca,'color','none')
-% set(gcf,'color','none')
 
 %% Display Figures:
 figure
