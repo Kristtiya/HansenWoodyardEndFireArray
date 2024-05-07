@@ -20,6 +20,8 @@ AF = @(x,y) sin(N.*(k.*x.*cos(0) + k.*x +y)./2)./ sin(.5.*(k.*x.*cos(0)+ k.*x +y
 % Backlobe of Array Factor
 AF_backlobe = @(x,y) sin(N.*(k.*x.*cos(0) + y)./2)./ sin(.5.*(k.*x.*cos(0) +y));
 
+%I want to reduce the backlobe while also making sure to retain the front
+%lobe. I need to make a new function that can take this into account. 
 %% Symbolic Functions
 syms AF_Sym x_sym y_sym
 AF_Sym = sin(N.*(k.*x_sym.*cos(0) + y_sym)./2)./ sin(.5.*(k.*x_sym.*cos(0) +y_sym));
@@ -55,7 +57,7 @@ while err_x > 0.01 || err_y > 0.01
     % Update difference between consecutive points
     err_x = abs(x_n(i+1,1) - x_n(i,1));
     err_y = abs(x_n(i+1,2) - x_n(i,2));
-    
+   
     % increment i (move to next row)
     i = i + 1;
 
@@ -65,10 +67,8 @@ while err_x > 0.01 || err_y > 0.01
     end
 end
 
-
 fprintf("Reached target in %d iterations\n",length(x_n))
 fprintf("Final pt is (x=%1.2f,y=%1.2f,z=%1.2f)\n",x_n(end,1),x_n(end,2),x_n(end,3))
-
 %% Display Figures:
 
 % surf(X,Y,Z), 
